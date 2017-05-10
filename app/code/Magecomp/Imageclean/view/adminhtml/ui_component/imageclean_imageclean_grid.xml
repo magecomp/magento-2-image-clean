@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid_data_source</item>
+            <item name="deps" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">imageclean_imageclean_columns</item>
+		<item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Fetch New Images</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/new</item>
+            </item>
+        </item>
+    </argument>
+	<dataSource name="imageclean_imageclean_grid_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">imageclean_imageclean_grid_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">imageclean_id</argument>            
+            <argument name="requestFieldName" xsi:type="string">id</argument>            
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">imageclean_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+	<listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+            </item>
+        </argument>
+		<bookmark name="bookmarks">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="namespace" xsi:type="string">imageclean_imageclean_grid</item>
+                    </item>
+                </item>
+            </argument>
+        </bookmark>
+		<component name="columns_controls">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsData" xsi:type="array">
+                        <item name="provider" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid.imageclean_imageclean_columns</item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
+                    <item name="displayArea" xsi:type="string">dataGridActions</item>
+                </item>
+            </argument>
+        </component>
+		<filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsProvider" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid.imageclean_imageclean_columns</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                    </item>
+					<item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                    <item name="childDefaults" xsi:type="array">
+                        <item name="provider" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">imageclean_imageclean_grid.imageclean_imageclean_grid.imageclean_imageclean_columns.${ $.index }:visible</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
+		<massaction name="listing_massaction">
+			<action name="delete">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="type" xsi:type="string">delete</item>
+						<item name="label" xsi:type="string" translate="true">Delete</item>
+						<item name="url" xsi:type="url" path="*/*/massDelete"/>
+						<item name="confirm" xsi:type="array">
+							<item name="title" xsi:type="string" translate="true">Delete Image(s)</item>
+							<item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
+						</item>
+					</item>
+				</argument>
+			</action>
+		</massaction>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+    <columns name="imageclean_imageclean_columns">
+		<selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">true</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">50</item>
+                    <item name="indexField" xsi:type="string">imageclean_id</item>
+					<item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+		<column name="filename" class="Magecomp\Imageclean\Ui\Component\Listing\Column\Thumbnail">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+					<item name="sortable" xsi:type="boolean">false</item>
+					<item name="altField" xsi:type="string">caption_text</item>
+					<item name="has_preview" xsi:type="string">1</item>
+					<item name="label" xsi:type="string" translate="true">Image</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+				</item>
+			</argument>
+		</column>
+		<actionsColumn name="actions" class="Magecomp\Imageclean\Ui\Component\Listing\Column\Deleteimage">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">200</item>
+                    <item name="indexField" xsi:type="string">imageclean_id</item>
+					<item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

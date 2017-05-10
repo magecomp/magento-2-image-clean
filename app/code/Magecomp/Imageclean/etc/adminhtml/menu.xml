@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+  <menu>
+    <add id="Magecomp_Imageclean::imageclean" resource="Magecomp_Imageclean::imageclean" module="Magecomp_Imageclean" title="Image Clean" sortOrder="20" ifconfig="advanced/modules_disable_output/Magecomp_Imageclean"/>
+		<add id="Magecomp_Imageclean::imagecleandata" resource="Magecomp_Imageclean::imagecleandata" module="Magecomp_Imageclean" title="Images Manager" sortOrder="30" action="imageclean/imageclean/index" parent="Magecomp_Imageclean::imageclean"/>
+   </menu>		
+</config>
