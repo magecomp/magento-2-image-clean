@@ -55,7 +55,7 @@ class Deleteimage extends Column
                         'label' => __('Delete'),
 						'confirm' => [
                             'title' => __('Delete'),
-                            'message' => __('Are you sure you wan\'t to delete a Image?')
+                            'message' => __('Are you sure you wan\'t to delete this Image?')
                         ]
                     ];
                 }
