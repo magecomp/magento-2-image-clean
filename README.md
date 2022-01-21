@@ -22,4 +22,8 @@ Magento 2 Image Clean allows removing non used product images from database of y
 
 ## Screenshots
 
+**1. Configuration**
+
 ![config](https://magecomp.com/media/catalog/product/cache/19b10369fecc27f1a40729d1b5b60dea/1/_/1_images-manager.webp)
+
+
